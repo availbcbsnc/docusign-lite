@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DocuSign Lite</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h2>Upload PDF and Sign</h2>
+    <form id="signForm" action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="pdf" accept="application/pdf" required><br><br>
+
+        <p>Draw your signature:</p>
+        <canvas id="signaturePad" width="500" height="150"></canvas><br>
+        <button type="button" onclick="clearSignature()">Clear</button>
+
+        <input type="hidden" name="signature" id="signatureInput">
+        <br><br>
+        <button type="submit">Sign & Download</button>
+    </form>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
